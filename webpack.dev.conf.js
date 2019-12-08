@@ -8,7 +8,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         port: 8081,
         overlay: true,
         contentBase: baseWebpackConfig.externals.paths.dist,
-
     },
 
     plugins: [

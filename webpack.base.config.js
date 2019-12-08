@@ -2,11 +2,13 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const PATHS = {
     src: path.join(__dirname, './src'),
     dist: path.join(__dirname, './dist'),
-    assets: './assets'
+    assets: 'assets',
+    img: '../img',
+    fonts: '../fonts',
 };
 let config = {
     // Точки входа
@@ -59,6 +61,24 @@ let config = {
                 ]
 
             },
+            {
+                test: /\.(img|jpe?g|gif|svg)?$/,
+                loader: 'file-loader',
+                options: {
+                    name: `[name].[ext]`,
+                    publicPath: `${PATHS.img}`,
+                    outputPath: `${PATHS.assets}/img/`
+                },
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot|)(\?v=\d+\.\d+\.\d+)?$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    publicPath: `${PATHS.fonts}`,
+                    outputPath: `${PATHS.assets}/fonts/`
+                }
+            }
         ]
     },
 
@@ -74,7 +94,20 @@ let config = {
             jQuery: "jquery"
         }),
 
-
+        new HtmlWebpackPlugin({
+            template: `${PATHS.src}/index.html`,
+            filename: "index.html",
+        }),
+        new HtmlWebpackPlugin({
+            template: `${PATHS.src}/login.html`,
+            filename: "login.html",
+        }),
+        new CopyWebpackPlugin([
+            {
+                from: `${PATHS.src}/img`, to: `${PATHS.assets}/img`,
+                flatten:true
+            }
+        ])
     ]
 };
 

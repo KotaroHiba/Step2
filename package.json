@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.build.conf.js",
-    "dev": "webpack-dev-server --config webpack.dev.conf.js"
+    "build": "webpack --config webpack-configuration/webpack.build.conf.js",
+    "dev": "webpack-dev-server --config webpack-configuration/webpack.dev.conf.js"
   },
   "browserslist": [
     "> 1%",

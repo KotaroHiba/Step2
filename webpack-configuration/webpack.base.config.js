@@ -4,10 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const PATHS = {
-    src: path.join(__dirname, './src'),
-    dist: path.join(__dirname, './dist'),
+    src: path.join(__dirname, '../src'),
+    dist: path.join(__dirname, '../dist'),
     assets: 'assets',
-    img: '../img',
+    img: '../../img',
     fonts: '../fonts',
 };
 let config = {
@@ -67,7 +67,7 @@ let config = {
                 options: {
                     name: `[name].[ext]`,
                     publicPath: `${PATHS.img}`,
-                    outputPath: `${PATHS.assets}/img/`
+                    outputPath: `/img/`
                 },
             },
             {
@@ -104,7 +104,7 @@ let config = {
         }),
         new CopyWebpackPlugin([
             {
-                from: `${PATHS.src}/img`, to: `${PATHS.assets}/img`,
+                from: `${PATHS.src}/img`, to: `img`,
                 flatten:true
             }
         ])

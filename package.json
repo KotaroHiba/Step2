@@ -1,0 +1,12 @@
+{
+  "name": "finalstep",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack-dev-server --mode development --inline"
+  },
+  "author": "Kotaro Hiba",
+  "license": "ISC"
+}

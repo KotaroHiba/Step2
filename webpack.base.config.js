@@ -1,21 +1,28 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+
+const PATHS = {
+    src: path.join(__dirname, './src'),
+    dist: path.join(__dirname, './dist'),
+    assets: './assets'
+};
 let config = {
     // Точки входа
     entry: {
-        index: './src/index.js'
+        index: `${PATHS.src}/index.js`
     },
 
     // На выходе [name] - имя точки входа
     output: {
-        filename: '[name].js',
+        filename: `${PATHS.assets}/js/[name].js`,
         path: path.resolve(__dirname, 'dist'),
-        publicPath: "/dist"
+        publicPath: ''
     },
 
-    devServer: {
-        overlay: true
+    externals: {
+        paths: PATHS
     },
 
     module: {
@@ -57,10 +64,17 @@ let config = {
 
     plugins: [
         new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: `${PATHS.assets}/css/[name].css`,
             chunkFilename: '[id].css',
-            ignoreOrder: false,
+            // ignoreOrder: false,
         }),
+
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }),
+
+
     ]
 };
 

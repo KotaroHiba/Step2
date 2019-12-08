@@ -1,4 +1,4 @@
 let test = (a, b) => a+b;
-console.log(test(10,5));
+console.log(test(12,12));
 
 import './main.scss';

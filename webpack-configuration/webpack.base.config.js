@@ -19,9 +19,11 @@ let config = {
     // На выходе [name] - имя точки входа
     output: {
         filename: `${PATHS.assets}/js/[name].js`,
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, '../dist'),
         publicPath: ''
     },
+
+
 
     externals: {
         paths: PATHS
@@ -62,6 +64,10 @@ let config = {
 
             },
             {
+                test: /\.pug$/,
+                loader: 'pug-loader'
+            },
+            {
                 test: /\.(img|jpe?g|gif|svg)?$/,
                 loader: 'file-loader',
                 options: {
@@ -95,7 +101,7 @@ let config = {
         }),
 
         new HtmlWebpackPlugin({
-            template: `${PATHS.src}/index.html`,
+            template: `${PATHS.src}/index.pug`,
             filename: "index.html",
         }),
         new HtmlWebpackPlugin({

@@ -1,0 +1,33 @@
+
+.button {
+  position: relative;
+
+  &__element {
+    border-radius: 22px;
+    position: relative;
+    font-family: 'Montserrat', cursive;
+    color: #FFF;
+    width: 320px;
+    height: 44px;
+    border: solid 2px transparent;
+    background-image: linear-gradient(180deg, $color-purple 0%, #8BA4F9 100%), linear-gradient(180deg, $color-purple 0%, #8BA4F9 100%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    padding-bottom: 3px;
+
+    &::after {
+      content: "";
+      right: 15px;
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background-image: url("img/arrow.svg") ;
+    }
+  }
+
+  &.button_inverted &__element {
+    box-shadow: 2px 1000px 1px #fff inset;
+    color: $color-purple;
+  }
+}
+

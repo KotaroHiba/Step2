@@ -1,0 +1,14 @@
+mixin property-room(options)
+    if !options
+        - var options = {}
+        if !options.icon
+            - options.icon = ''
+    .property-room
+        .property-room__icon
+            i fsdafkdjh
+            img(src=require('../../../../ENB/src/pages/index/camp.svg'))
+        .property-room__title
+        .property-room__subtitle
+
++property-room()
+

@@ -1,15 +1,16 @@
-@import "fonts";
+
 .box {
   width: 200px;
   height: 200px;
-  background-image: url("img/photo2.jpg");
+  background-image: url("components/button/img/photo2.jpg");
 
 }
 .wrap {
   display: flex;
 }
-
 h1 {
-  font-family: 'Montserrat';
+
+  font-family: 'Quicksand';
   font-weight: bold;
 }
+

@@ -3,17 +3,26 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const fs = require('fs');
+
 const PATHS = {
     src: path.join(__dirname, '../src'),
     dist: path.join(__dirname, '../dist'),
     assets: 'assets',
     img: '../../img',
     fonts: '../../fonts',
+    theme: '/theme/'
 };
+const PAGES_DIR = `${PATHS.src}/pages/`;
+const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('pug'));
+let chunks = (vendor, myName) => [vendor, myName];
+
+
 let config = {
     // Точки входа
     entry: {
-        index: `${PATHS.src}/index.js`
+        index: `${PATHS.src}/index.js`,
+        login: `${PATHS.src}/login.js`
     },
 
     // На выходе [name] - имя точки входа
@@ -64,6 +73,16 @@ let config = {
                             sourceMap: true
                         }
                     },
+                    {
+                        loader: 'sass-resources-loader',
+                        options: {
+                            resources: [
+                                `${PATHS.src}${PATHS.theme}variables.scss`,
+                                `${PATHS.src}${PATHS.theme}mixins.scss`,
+                                // `${PATHS.src}${PATHS.theme}fonts.scss`,
+                            ],
+                        }
+                    }
                 ]
 
             },
@@ -104,20 +123,21 @@ let config = {
             jQuery: "jquery"
         }),
 
-        new HtmlWebpackPlugin({
-            template: `${PATHS.src}/index.pug`,
-            filename: "index.html",
-        }),
-        new HtmlWebpackPlugin({
-            template: `${PATHS.src}/login.html`,
-            filename: "login.html",
-        }),
         new CopyWebpackPlugin([
             {
-                from: `${PATHS.src}/img`, to: `img`,
+                from: `${PATHS.src}/components/`, to: `img`,
+                from: `${PATHS.src}/theme/fonts`, to: `fonts`,
                 flatten:true
             }
-        ])
+        ]),
+
+        ...PAGES.map(page => new HtmlWebpackPlugin({
+            template: `${PAGES_DIR}/${page}`,
+            filename: `./${page.replace(/\.pug/, '.html')}`,
+            chunks: ['vendors', `${page.replace(/\.pug/, '')}`],
+
+        }))
+
     ]
 };
 

@@ -8,7 +8,7 @@ const PATHS = {
     dist: path.join(__dirname, '../dist'),
     assets: 'assets',
     img: '../../img',
-    fonts: '../fonts',
+    fonts: '../../fonts',
 };
 let config = {
     // Точки входа
@@ -18,12 +18,16 @@ let config = {
 
     // На выходе [name] - имя точки входа
     output: {
-        filename: `${PATHS.assets}/js/[name].js`,
+        filename: `${PATHS.assets}/js/[name].[hash].js`,
         path: path.resolve(__dirname, '../dist'),
         publicPath: ''
     },
 
-
+    resolve: {
+        alias: {
+            '~':'src'
+        }
+    },
 
     externals: {
         paths: PATHS
@@ -51,7 +55,7 @@ let config = {
                         loader: "postcss-loader",
                         options: {
                             sourceMap: true,
-                            config: {path: 'src/postcss.config.js'}
+                            config: {path: './postcss.config.js'}
                         }
                     },
                     {
@@ -82,7 +86,7 @@ let config = {
                 options: {
                     name: '[name].[ext]',
                     publicPath: `${PATHS.fonts}`,
-                    outputPath: `${PATHS.assets}/fonts/`
+                    outputPath: `/fonts/`
                 }
             }
         ]
@@ -90,7 +94,7 @@ let config = {
 
     plugins: [
         new MiniCssExtractPlugin({
-            filename: `${PATHS.assets}/css/[name].css`,
+            filename: `${PATHS.assets}/css/[name].[contenthash].css`,
             chunkFilename: '[id].css',
             // ignoreOrder: false,
         }),

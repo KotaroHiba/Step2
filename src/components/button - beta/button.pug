@@ -1,0 +1,21 @@
+//invert (bool) - прозрачная кнопка
+//element - указываем блок внутри которого находится кнопка
+//submit (bool) - тип кнопки submit
+//tabindex - (bool) - аргумент button
+//text - текст внутри кнопки (default - Button)
+//class - дополнительные классы (вводятся полностью) - первый без пробела
+mixin button(options)
+    if !options
+        - var options = {}
+    -
+        var classes = ''
+        classes += options.element ? ' ' + options.element + '__button': ''
+        classes += options.invert ? ' button_inverted' : ''
+        classes += options.class ? ' ' + options.element : ''
+    .button(class=classes)
+        button.button__element(
+            type = options.submit ? 'submit' : false,
+            tabindex = options.tabindex || false
+        )= options.text || 'Button'
+
++button({invert : true, element: 'footer', submit: true, class: 'button_arrow'})

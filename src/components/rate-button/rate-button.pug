@@ -1,0 +1,8 @@
+// Count - int - кол-во заполненых звёздочек.
+mixin rate-button(count)
+    .rate-button 
+        - for(let i = 0; i < 5; i++)
+            if i < count
+                .rate-button__star(data-value=(i)) star 
+            else
+                .rate-button__star(data-value=(i)) star_border 

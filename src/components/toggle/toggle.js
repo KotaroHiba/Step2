@@ -1,5 +1,5 @@
 import './toggle.sass';
-
+import $ from 'jquery';
 $(function(){
     $('.toggle').click(function (e, changeState) {
 

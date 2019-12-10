@@ -125,7 +125,14 @@ let config = {
 
         new CopyWebpackPlugin([
             {
-                from: `${PATHS.src}/components/`, to: `img`,
+                from: `${PATHS.src}/components`, to: `img`,
+                ignore: ['*js' , '*scss', '*pug', '*sass' ],
+                flatten:true
+            }
+        ]),
+        new CopyWebpackPlugin([
+            {
+
                 from: `${PATHS.src}/theme/fonts`, to: `fonts`,
                 flatten:true
             }

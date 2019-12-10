@@ -1,0 +1,1 @@
+import './feedback-record.sass'

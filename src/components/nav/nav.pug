@@ -1,0 +1,19 @@
+mixin nav(options)
+    if !options
+        - options = {}
+    -
+        var classes = 'logo'
+        classes += options.element ? ' ' + options.element + '__nav' : ''
+        classes += options.mode ? ' nav_' + options.mode : ''
+        classes += options.addAnyClass ? ' ' + options.addAnyClass : ''
+    div.nav(class=classes)
+        for text in options.listMenu
+            a.nav__link(href=text.link)= text.text
+
+
++nav({
+    listMenu: [
+        {text: 'Главная', link:'#'},
+        {text: 'О нас', link:'https://google.com'}
+        ]
+})

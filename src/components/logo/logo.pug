@@ -1,0 +1,25 @@
+//-           Options                       |               Classes
+    ----------------------------------------------------------------------------
+     withText - (bool) c текстом или нет    | options.element - элементом какого блока я вляется
+                                            | option.mode - модификатор данного блока
+                                            | option.addAnyClass - свободное добавление классов к блоку
+                                            |
+                                            |
+
+mixin logo(options)
+    if !options
+        - options = {}
+    -
+        var classes = 'logo'
+        classes += options.element ? ' ' + options.element + '__logo' : ''
+        classes += options.mode ? ' logo_' + options.mode : ''
+        classes += options.addAnyClass ? ' ' + options.addAnyClass : ''
+    div(class=classes)
+        div.logo__icon
+            img.logo__icon-item.logo__icon-img(src='img/Vector.svg')
+            img.logo__icon-item.logo__icon-title(src='img/TOXIN.svg')
+        if options.withText === true
+            div.logo__text
+               |Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+
+

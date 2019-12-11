@@ -77,9 +77,9 @@ let config = {
                         loader: 'sass-resources-loader',
                         options: {
                             resources: [
-                                `${PATHS.src}${PATHS.theme}variables.scss`,
-                                `${PATHS.src}${PATHS.theme}mixins.scss`,
-                                // `${PATHS.src}${PATHS.theme}fonts.scss`,
+                                `${PATHS.src}${PATHS.theme}variables.sass`,
+                                // `${PATHS.src}${PATHS.theme}mixins.scss`,
+                                // `${PATHS.src}${PATHS.theme}fonts.sass`,
                             ],
                         }
                     }

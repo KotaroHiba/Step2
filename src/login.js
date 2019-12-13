@@ -1,1 +1,2 @@
-alert(123);
+import './theme/fonts.sass'
+import './components/header/header'

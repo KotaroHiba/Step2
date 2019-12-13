@@ -1,0 +1,14 @@
+@function percent($widthBlock)
+  @return $widthBlock / 1160px * 100%
+
+.header
+  display: grid
+  max-width: 1160px
+  margin: 0 auto
+  grid-template-columns:  percent(106+265px) percent(446px) percent(87px) percent(196px)
+  grid-template-rows: 70px
+  grid-column-gap: 20px
+  align-items: center
+  background: rgba(0, 255, 205, 0.2)
+  &__button
+    height: 34px

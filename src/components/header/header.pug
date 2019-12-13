@@ -1,3 +1,32 @@
 include ../button/button
 include ../logo/logo
 include ../nav/nav
+
+
+container
+  header.header
+    +logo({element: "header"})
+
+    +nav({
+        element: "header",
+        listMenu: [
+            {text: 'Главная', link: '#'},
+            {text: 'О нас', link: 'https://google.com'},
+            {text: 'Главная', link: '#'},
+            {text: 'Главная', link: '#'},
+            {text: 'Главная', link: '#'}
+        ]
+    })
+
+    +button({
+        invert: true,
+        element: 'header',
+        submit: true,
+        text: "Войти"
+    })
+    +button({
+        element: 'header',
+        submit: true,
+        text: "Зарегистрироваться",
+        class: "header__button_long"
+    })

@@ -1,3 +1,9 @@
+
+
+
+
+
+
 mixin nav(options)
     if !options
         - options = {}
@@ -8,12 +14,6 @@ mixin nav(options)
         classes += options.addAnyClass ? ' ' + options.addAnyClass : ''
     div.nav(class=classes)
         for text in options.listMenu
+            if !text.link
+                - text.link = '#'
             a.nav__link(href=text.link)= text.text
-
-
-+nav({
-    listMenu: [
-        {text: 'Главная', link:'#'},
-        {text: 'О нас', link:'https://google.com'}
-        ]
-})

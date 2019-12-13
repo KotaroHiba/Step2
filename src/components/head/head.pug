@@ -1,0 +1,40 @@
+include ../nav/nav
+include ../button/button
+include ../logo/logo
+
+
+mixin header(options)
+    -var nameBlock = 'header'
+    if !options
+        - options = {}
+
+    div.header
+        +logo({
+            element: nameBlock
+        })
+
+        +nav({
+            element: nameBlock,
+            listMenu: [
+                {text: 'Главная', link: '#'},
+                {text: 'О нас', link: 'https://google.com'},
+                {text: 'Главная', link: '#'},
+                {text: 'Главная', link: '#'},
+                {text: 'Главная', link: '#'}
+            ]
+        })
+
+        +button({invert: true, element: nameBlock, submit: true, text: "Войти"})
+
+        +button({
+            element: nameBlock,
+            submit: true,
+            text: "Зарегистрироваться",
+            class: "header__button_long"
+        })
+
+
+
++header({
+
+})

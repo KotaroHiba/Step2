@@ -12,7 +12,7 @@ mixin button(options)
         var classes = ''
         classes += options.element ? ' ' + options.element + '__button': ''
         classes += options.invert ? ' button_inverted' : ''
-        classes += options.class ? ' ' + options.element : ''
+        classes += options.class ? ' ' + options.class : ''
     .button(class=classes)
         button.button__element(
             type = options.submit ? 'submit' : false,

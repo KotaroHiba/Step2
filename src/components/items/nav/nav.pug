@@ -1,0 +1,42 @@
+//-           Options                       |               Classes
+    ----------------------------------------------------------------------------
+     listMenu - object                      | options.element - элементом какого блока я вляется
+        (text, drop - стрелка, link - ссыль)| option.mode - модификатор данного блока
+                                            | option.addAnyClass - свободное добавление классов к блоку
+                                            |
+                                            |
+
+
+
+
+
+
+mixin nav(options)
+    if !options
+        - options = {}
+    -
+        var classes = 'nav'
+        classes += options.mode ? ' nav_' + options.mode : ''
+        classes += options.element ? ' ' + options.element + '__nav' : ''
+        classes += options.addAnyClass ? ' ' + options.addAnyClass : ''
+    div(class=classes)
+        for text in options.listMenu
+            if !text.link
+                - text.link = '#'
+            if text.drop
+                a.nav__link.nav__link_drop(href=text.link class=text.drop)= text.text
+                    img(src="img/arrow_drop.svg")
+
+            else
+                a.nav__link(href=text.link)= text.text
+
+//+nav({
+//    element: 'header',
+//    listMenu: [
+//        {text: 'Главная', link: '#'},
+//        {text: 'О нас', link: 'https://google.com'},
+//        {text: 'Главная', link: '#', drop: true},
+//        {text: 'Главная', link: '#'},
+//        {text: 'Главная', link: '#'}
+//    ]
+//})

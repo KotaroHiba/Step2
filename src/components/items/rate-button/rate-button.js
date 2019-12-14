@@ -1,4 +1,3 @@
-import './rate-button.sass'
 
 $(document).ready(function(){
     $('.rate-button .rate-button__star').on('mouseover', function(){

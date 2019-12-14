@@ -1,4 +1,4 @@
-import './like-button.sass'
+
 
 $(function(){
     $('.like-button').click(function (e, changeState) {

@@ -5,12 +5,11 @@
     count - кол-во лайков          | mode - модификатор
                                    |
 
-
-// On - bool (true/false) - нажато ли сердечко.
-// Count - int - значение в кол-чо лайков.
 mixin like-button(options)
     if !options
         - var options = {}
+    if !options.count
+        - options.count = 3
     -
         var classes = ''
         classes += options.element ? ' ' + options.element + '__like-button': ''

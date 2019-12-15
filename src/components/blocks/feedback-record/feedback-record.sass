@@ -1,0 +1,29 @@
+.feedback-record 
+    display: flex
+    flex-direction: column
+    &__top, &__bottom
+        display: flex
+        flex-direction: row
+    &__top
+        align-items: center
+        margin: 0 0 10px 0
+        > .feedback-record__title
+            padding: 0 0 0 10px
+            > .feedback-record__author
+                font-family: 'Montserrat'
+                font-weight: bold
+                color: rgba(31, 32, 65, 0.75)
+        img            
+            border: 2px solid #FFFFFF
+            box-sizing: border-box
+            box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.1)
+            border-radius: 32px
+            height: 48px
+            width: 48px
+    &__bottom
+        > .feedback-record__like
+            padding: 0 4px 0 4px
+        > .simple-text
+            padding: 0 0 0 10px
+            width: 653px
+

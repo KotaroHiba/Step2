@@ -1,0 +1,34 @@
+//-           Options                |               Classes                       |   Includes
+    -------------------------------------------------------------------------------|-------------------
+    options.image - путь до картинки | options.element - класс элемента            | like-button
+    options.author - имя автора      | options.mode - модификатор блока            |  count - кол-во лайков
+    options.data - дата публикаци    | options.state - модификатор состояния       |  state (bool = false) - лайкнуто или нет
+    options.text - текст отзыва      | options.addAnyClass - добавить любой класс  |
+                                     | options.class - class input-a               |
+include ../../items/like-button/like-button
+
+mixin feedback-record(options)
+    .feedback-record
+        .feedback-record__top
+            script
+                import '#{options.image}'
+            img(src=options.image, alt=options.author)
+            .feedback-record__title
+                .feedback-record_author= options.author
+                .simple-text= options.data
+        .feedback-record__bottom
+            +like-button({
+                count: options.count,
+                state: options.state,
+                element: 'feedback-record'
+            })
+            .simple-text= options.text
+
+
++feedback-record({
+     image: 'img/dd43be.png',
+     author: 'Kotaro Hiba',
+     data: '3 дня назад',
+     count: 12,
+     text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
+ })

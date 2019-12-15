@@ -33,7 +33,10 @@ let config = {
 
     resolve: {
         alias: {
-            '~':'src'
+            // bind version of jquery-ui
+            "jquery-ui": "jquery-ui/jquery-ui.js",
+            // bind to modules;
+            modules: path.join(__dirname, "node_modules"),
         }
     },
 
@@ -118,8 +121,10 @@ let config = {
         }),
 
         new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery"
+            "$" : 'jquery',
+            "jQuery" : "jquery",
+            "window.jQuery" : "jquery",
+
         }),
 
         new CopyWebpackPlugin([

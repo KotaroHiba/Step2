@@ -1,6 +1,5 @@
 import './theme/fonts.sass';
-
-
+// require('jquery-ui-bundle');
 
 // Подключение всех SASS и js файлов из components
 function requireAll(requireContext) {

@@ -10,13 +10,12 @@
         > .feedback-record__title
             padding: 0 0 0 10px
             > .feedback-record__author
-                font-family: 'Montserrat'
-                font-weight: bold
-                color: rgba(31, 32, 65, 0.75)
+                @include font(21px, bold)
+
         img            
             border: 2px solid #FFFFFF
             box-sizing: border-box
-            box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.1)
+            box-shadow: 0px 10px 20px $color-dark-10
             border-radius: 32px
             height: 48px
             width: 48px

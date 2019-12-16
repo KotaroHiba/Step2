@@ -1,9 +1,3 @@
-// Шрифты потом потключить по другому. 1 - за текст, 2 - за сердечко.
-// Если что поменять пути к шрифтам.
-
-$font-family: 'Montserrat'
-$color-gray: rgba(31, 32, 65, 0.25)
-$color-lavanda: #BC9CFF
 
 .like-button
     box-sizing: border-box
@@ -13,27 +7,27 @@ $color-lavanda: #BC9CFF
     width: 40px 
     height: 20px
     align-items: center    
-    border: solid 1px $color-gray
+    border: solid 1px $color-dark-25
     border-radius: 10px
     cursor: pointer
-    color: $color-gray
+    color: $color-dark-25
     &__like
         font-family: 'Material Icons'
         font-size: 10px
         line-height: 9px
     &__count
-        font-family: $font-family
+        font-family: $main-font
         font-size: 10px
         line-height: 12px
 
 .like-button-on
-    color: $color-lavanda
+    color: $main-color
     // Цветная рамка.
     border: solid 1px transparent
     border-radius: 10px
     background-origin: border-box
     background-clip: content-box, border-box
-    background-image: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%), linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+    background-image: $main-gradient, $main-gradient
     box-shadow: 2px 1000px 1px #fff inset
         
     

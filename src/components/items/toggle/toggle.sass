@@ -1,6 +1,3 @@
-$color-white: #FFFFFF
-$color-dark-shade-25: rgba(31, 32, 65, 0.25)
-$color-gradient: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
 
 .toggle
     box-sizing: border-box
@@ -8,8 +5,8 @@ $color-gradient: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
     width: 40px 
     height: 20px
     border-radius: 10px
-    background: $color-white
-    border: solid 1px $color-dark-shade-25
+    background: $white
+    border: solid 1px $color-dark-25
     cursor: pointer
     position: relative
     &:after
@@ -17,15 +14,15 @@ $color-gradient: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
         height: 12px 
         width: 12px 
         border-radius: 10px
-        background: $color-dark-shade-25
+        background: $color-dark-25
         top: 3px        
         left: 3px
         transition-duration: 600ms
         position: absolute
 
 .toggle-on
-    border-color: #BC9CFF
+    border-color: $main-color
     &:after
-        background: $color-gradient
+        background: $main-gradient
         left: 23px
         

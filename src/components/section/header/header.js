@@ -1,0 +1,1 @@
+$(document).ready(function(){    $(".open").click(function() {        $(".header__button-display-nav").toggleClass("active");        $(".nav").toggleClass("nav_visible");    });});

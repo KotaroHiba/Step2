@@ -1,0 +1,24 @@
+include ../../items/button/button
+include ../../items/nav/nav
+include ../../items/logo/logo
+
+header.header
+  +logo({element: "header"})
+
+  .open
+    button.header__button-display-nav
+  +nav({
+      element: "header",
+      listMenu: [
+          {text: 'Главная', link: '#'},
+          {text: 'О нас', link: 'https://google.com', drop: true},
+          {text: 'Главная', link: '#'},
+          {text: 'Главная', link: '#'},
+          {text: 'Главная', link: '#', drop: true}
+      ]
+  })
+
+  +button({invert: true, element: 'header', submit: true, text: "Войти",
+      addAnyClass: "header__button_small"})
+  +button({invert: false, element: 'header', submit: true, text:
+          "Зарегистрироваться", addAnyClass: "header__button_long"})

@@ -3,12 +3,21 @@
   display: $display
   position: $pos
 
-@mixin font($height: 14px, $weight: normal)
+
+@mixin font($height: 14px, $weight: normal, $color: $color-dark-75)
   font-family: $main-font, sans-serif
-  font-size: 14px
+  font-size: rem(14)
   font-style: normal
   line-height: $height
   font-weight: $weight
-  color: $color-dark-75
+  color: $color
 
 
+@mixin font-heading-3($height: 15px, $weight: bold, $color: $color-title)
+  font-family: $main-font, sans-serif
+  font-size: rem(12)
+  font-style: normal
+  line-height: $height
+  font-weight: $weight
+  color: $color
+  text-transform: uppercase

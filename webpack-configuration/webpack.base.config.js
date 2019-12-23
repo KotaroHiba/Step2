@@ -134,6 +134,14 @@ let config = {
                 flatten:true
             }
         ]),
+
+        new CopyWebpackPlugin([
+            {
+                from: `${PATHS.src}/theme/hotel-cards-photo`, to: `img/hotel-cards-photo`,
+                ignore: ['*js' , '*scss', '*pug', '*sass' ],
+                flatten:false
+            }
+        ]),
         new CopyWebpackPlugin([
             {
 

@@ -10,3 +10,9 @@
 @function rem($size)
   $pixel: $size /16
   @return $pixel + rem
+
+@function auto-mm($width, $toWidth: 0)
+  @if $toWidth != 0
+    @return minmax($width + px, percent($toWidth))
+  @return minmax($width + px, percent($width))
+

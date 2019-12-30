@@ -21,3 +21,9 @@
   font-weight: $weight
   color: $color
   text-transform: uppercase
+
+@mixin mm-wh($width, $height: none)
+  width: percent($width)
+  min-width: $width + px
+  height: percent($height)
+  min-height: $height + px

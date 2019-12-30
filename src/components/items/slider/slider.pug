@@ -1,0 +1,47 @@
+//-           Options              |               Classes
+    ---------------------------------------------------------------------------
+    path(str) - путь до фотографий |   element - элементом какого блока является
+         относительно слайдера     |   addAnyClass - добавление свободных классов
+      'img/'                       |
+    slides(array) - имена картинок |   mode - модификатор
+                                   |
+                                   |
+    
+
+
+
+mixin slider(options)
+    if !options
+        - var options = {}
+    -
+        var classes = ''
+        classes += options.element ? ' ' + options.element + '__slider': ''
+        classes += options.mode ? ' '  + 'slider_' + options.mode: ''
+        classes += options.addAnyClass ? ' ' + options.addAnyClass : ''
+        style = options.slides.length < 2 ? 'display:none' : ''
+    div.slider(class=classes)
+        div.slider__viewport
+            div.slider__prev(style=style)
+                i.material-icons keyboard_arrow_left
+            for slide, index in options.slides
+                if index === 0
+                    div.slider-item.active
+                        img(src= options.path + slide)
+                else
+                    div.slider-item
+                        img(src= options.path + slide)
+            div.slider__target(style=style)
+                for slide, index in options.slides
+                    if index === 0
+                        div.slider__target-circle.active
+                    else
+                        div.slider__target-circle
+            div.slider__next(style=style)
+                i.material-icons keyboard_arrow_right
+
+//div.table
+//    +slider({
+//        element: 'table',
+//        path: 'img/',
+//        slides: ['1.svg', '2.svg', '3.jpg', '2.svg']
+//    })

@@ -109,6 +109,7 @@ $(document).ready(function() {
         // Ищем дочерний элемент и подставляем в него значения.
         let pole = parent.find('.dropdown__text');
         pole.text(text);
+        parent.find('.dropdown__button').next().slideToggle();
     });
 
 

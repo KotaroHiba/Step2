@@ -1,1 +1,35 @@
-//-           Options                       |               Classes    ---------------------------------------------------------------------------    options.times - количество чекбоксов    | options.addAnyClass - добавить любой класс    options.id - id (массив)                | options.element - класс элемента    options.name - name (массив)            | options.mode - модификатор блока    options.info - подпись в label (массив) | options.state - модификатор состояния    options.description - описание (массив) |mixin input-checkbox(options)  if !options    -options= {}  if !options.id || !options.info || !options.times    p Указание id, info и times является обязательным для input-checkbox  -    var classes = 'input-checkbox'    classes += options.element ? ' ' + options.element : ''    classes += options.mode ? ' input-checkbox_' + options.mode : ''    classes += options.state ? ' input-checkbox_state_' + options.state : ''    classes += options.addAnyClass ? ' ' + options.addAnyClass : ''  div(class=classes)    ul.input-checkbox__conteiner    -for (var x = 0; x < options.times; x++)      li.input-checkbox__item        input(          class="input-checkbox__checkbox"          type="checkbox"          name= options.name[x]          id= options.id[x]        )        label.input-checkbox__signature(for= options.id[x])          span= options.info[x]        if options.description          p.input-checkbox__description= options.description[x]
+//-           Options                       |               Classes
+    ---------------------------------------------------------------------------
+    options.description - описание (массив) | options.addAnyClass - добавить любой класс
+    options.id - id (массив)                | options.element - класс элемента
+    options.name - name (массив)            | options.mode - модификатор блока
+    options.info - подпись в label (массив) | options.state - модификатор состояния
+
+mixin input-checkbox(options)
+  if !options
+    -options= {}
+  if !options.id || !options.info
+    p Указание id, info и times является обязательным для input-checkbox
+  -
+    var classes = 'input-checkbox'
+    classes += options.element ? ' ' + options.element + '__input-checkbox': ''
+    classes += options.mode ? ' input-checkbox_' + options.mode : ''
+    classes += options.state ? ' input-checkbox_state_' + options.state : ''
+    classes += options.addAnyClass ? ' ' + options.addAnyClass : ''
+
+  div(class=classes)
+    ul.input-checkbox__conteiner
+    -for (var x = 0; x < options.id.length; x++)
+      li.input-checkbox__item
+        input(
+          class="input-checkbox__checkbox"
+          type="checkbox"
+          name= options.name ? options.name[x]: "input-checkbox__checkbox " + x
+          id= options.id[x]
+        )
+        label.input-checkbox__signature(for= options.id[x])
+          span(
+            class= options.description ? "input-checkbox__text_bold": "input-checkbox__text"
+          )= options.info[x]
+        if options.description
+          p.input-checkbox__description= options.description[x]

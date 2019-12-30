@@ -1,0 +1,40 @@
+include ../../items/dropdown/dropdown
+include ../../items/button/button
+mixin sale-block()
+    div.sale-block
+        div.sale-block__container
+            div.sale-block__title
+                div.sale-block__hotel-number N888 <span>люкс</span>
+                div.sale-block__sale-day <span>9990Р</span> в сутки
+            div.sale-block__form
+                //div.sale-block__form-arrival
+                //    h3 Прибытие
+                //    +dropdown({})
+                //div.sale-block__form-exit
+                //    h3 выезд
+                //    +dropdown({})
+                div.sale-block__guests
+                    h3 Гости
+                    +dropdown({vestNumbers: true})
+            div.sale-block__calc
+                span 9900Р х4 суток
+                span 39960Р
+
+                span Сбор за услуги: скидка 2 179Р
+                span 0Р
+
+                span Сбор за дополнительные услуги
+                span 300Р
+            div.sale-block__total
+                div.sale-block__total-title Итого
+                div.sale-block__total-points
+                div.sale-block__total-sale 39 081Р
+            div.sale-block__button
+                +button({
+                    text: 'забронировать',
+                    arrow: true
+                })
++sale-block({
+
+})
+

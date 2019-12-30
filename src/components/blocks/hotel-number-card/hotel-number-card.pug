@@ -1,0 +1,51 @@
+//-                        Options                  |               Classes
+   ------------------------------ ---------------------------------------------------------------------------
+     infoRoom - (obj)                               |   element - элементом какого блока является
+        number - (int) номер команты                |   addAnyClass - добавление свободных классов
+        lux - (bool = false) приставка к номеру     |   mode - свободный модификатор
+        sale - (string) цена за комнату в сутки     |
+     slides - (array) - массив с именами картинок   |
+              для этой карточки                     |
+
+
+
+include ../../items/number-cost/number-cost
+include ../../items/slider/slider
+mixin hotel-number-card(options)
+    if !options
+        - var options = {}
+    -
+        var classes = ''
+        classes += options.element ? ' ' + options.element + '__hotel-number-card': ''
+        classes += options.mode ? ' '  + 'hotel-number-card_' + options.mode: ''
+        classes += options.addAnyClass ? ' ' + options.addAnyClass : ''
+
+    - var paths = 'img/hotel-cards-photo/' + options.infoRoom.number + '/'
+    - var blockName = 'hotel-number-card'
+    div.hotel-number-card(class=classes)
+        +slider({
+            element: blockName,
+            path: paths,
+            slides: options.slides
+        })
+
+        - var number = '№ ' + options.number
+
+        +number-cost({
+            element: blockName,
+            number: options.infoRoom.number,
+            sale: options.infoRoom.sale,
+            lux: options.infoRoom.lux,
+            star: true
+        })
+
+
++hotel-number-card({
+    element: 'header',
+    infoRoom: {
+        number: 802,
+        lux: true,
+        sale: '2 000'
+    },
+    slides: ['1.svg']
+})

@@ -1,1 +1,105 @@
-<head><link href="assets/css/index.8dece3f58ea10611be8b.css" rel="stylesheet"></head><meta name="viewport"      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"><h1>hello world</h1><script type="text/javascript" src="assets/js/vendors.5487cec8a8cfd0ae9df7.js"></script><script type="text/javascript" src="assets/js/index.5487cec8a8cfd0ae9df7.js"></script>
+<!--+button({invert : false, element: 'footer', submit: true, class: 'button_arrow', text: 'Кнопка'})--><!--+nav({--><!--    element: 'header',--><!--    listMenu: [--><!--        {text: 'Главная', link: '#'},--><!--        {text: 'О нас', link: 'https://google.com'},--><!--        {text: 'Главная', link: '#', drop: true},--><!--        {text: 'Главная', link: '#'},--><!--        {text: 'Главная', link: '#'}--><!--    ]--><!--})--><!--+button({invert : false, element: 'footer', submit: true, class: 'button_arrow', text: 'Кнопка'})--><!--+log-page()--><!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=2.0">
+    <link href="assets/css/index.a0b18b0377d9c8600772.css" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+    <div class="logo header__logo">
+        <div class="logo__icon"><img src="img/logo.svg"></div>
+    </div>
+    <div class="open">
+        <button class="header__button-display-nav"></button>
+    </div>
+    <div class="nav header__nav"><a class="nav__link" href="#">О нас</a><a class="nav__link nav__link_drop true"
+                                                                           href="#">Услуги<img src="img/arrow_drop.svg"></a><a
+            class="nav__link" href="#">Вакансии</a><a class="nav__link" href="#">Новости</a><a
+            class="nav__link nav__link_drop true" href="#">Соглашения<img src="img/arrow_drop.svg"></a></div>
+    <div class="button  header__button button_inverted header__button_small">
+        <form class="button__form" action="login.html">
+            <button class="button__element" type="submit">Войти</button>
+        </form>
+    </div>
+    <div class="button  header__button header__button_long">
+        <form class="button__form" action="register.html">
+            <button class="button__element" type="submit">Зарегистрироваться</button>
+        </form>
+    </div>
+</header>
+<div class="log-page  log-page_auth">
+    <div class="log-form  log-page__log-form">
+        <div class="log-form__container"><h1 class="log-form__title">Войти</h1>
+            <div class="input-text-field log-form__input-text-field"><input class="input-text-field__text-input"
+                                                                            type="email" placeholder="Email"></div>
+            <div class="input-text-field log-form__input-text-field"><input class="input-text-field__text-input"
+                                                                            type="password" placeholder="Пароль"></div>
+            <div class="button  log-form__button button_arrow">
+                <form class="button__form">
+                    <button class="button__element">Перейти к оплате</button>
+                </form>
+            </div>
+            <div class="log-form__link-login"><span>Нет аккаунта на Toxin?</span>
+                <div class="button  log-form__button button_inverted">
+                    <form class="button__form">
+                        <button class="button__element">Войти</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="logo footer__logo">
+        <div class="logo__icon"><img src="img/logo.svg"></div>
+        <div class="logo__text">Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+        </div>
+    </div>
+    <div class="footer-list footer__footer-list"><h3 class="footer-list__heading">Навигация</h3>
+        <ul class="footer-list__container">
+            <li class="footer-list__item"><a class="footer-list__text" href="#">О нас</a></li>
+            <li class="footer-list__item"><a class="footer-list__text" href="#">Новости</a></li>
+            <li class="footer-list__item"><a class="footer-list__text" href="#">Служба поддержки</a></li>
+            <li class="footer-list__item"><a class="footer-list__text" href="#">Услуги</a></li>
+        </ul>
+    </div>
+    <div class="footer-list footer__footer-list"><h3 class="footer-list__heading">О нас</h3>
+        <ul class="footer-list__container">
+            <li class="footer-list__item"><a class="footer-list__text" href="#">О сервисе</a></li>
+            <li class="footer-list__item"><a class="footer-list__text" href="#">Наша команда</a></li>
+            <li class="footer-list__item"><a class="footer-list__text" href="#">Вакансии</a></li>
+            <li class="footer-list__item"><a class="footer-list__text" href="#">Инвесторы</a></li>
+        </ul>
+    </div>
+    <div class="footer-list footer__footer-list"><h3 class="footer-list__heading">Служба поддержки</h3>
+        <ul class="footer-list__container">
+            <li class="footer-list__item"><a class="footer-list__text" href="#">Соглашения</a></li>
+            <li class="footer-list__item"><a class="footer-list__text" href="#">Сообщества</a></li>
+            <li class="footer-list__item"><a class="footer-list__text" href="#">Связь с нами</a></li>
+        </ul>
+    </div>
+    <div class="footer__subscription-conteiner">
+        <div class="footer-list footer__footer-list footer__footer-list_column"><h3 class="footer-list__heading">
+            Подписка</h3>
+            <ul class="footer-list__container">
+                <li class="footer-list__item"><a class="footer-list__text" href="#">Получайте специальные предложения и
+                    новости сервиса</a></li>
+            </ul>
+        </div>
+        <div class="input-text-field footer__input-text-field input-text-field_arrow"><input
+                class="input-text-field__text-input" type="email" name="footer-email-subscription"
+                id="footer-subscription" placeholder="Email"></div>
+    </div>
+    <hr class="footer__separator">
+    <p class="footer__copyright">Copyright © 2018 Toxin UI Kit. All rights reserved.</p>
+    <div class="footer__social-icon"><img class="footer__tweeter" src="img/tweeter.svg" alt="Твитер"><img
+            class="footer__facebook" src="img/facebook.svg" alt="Фейсбук"><img class="footer__instagram"
+                                                                               src="img/instagram.svg" alt="Инстаграмм">
+    </div>
+</footer>
+<script type="text/javascript" src="assets/js/vendors.a17a524b25044eb2afc3.js"></script>
+<script type="text/javascript" src="assets/js/index.a17a524b25044eb2afc3.js"></script>
+</body>
+</html>

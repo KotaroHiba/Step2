@@ -1,0 +1,17 @@
+include ../../blocks/log-form/log-form
+
+mixin log-page(options)
+    - var blockName = 'log-page'
+    -
+        var classes = ''
+        classes += options.element ? ' ' + options.element + '__log-page': ''
+        classes += options.mode ? ' '  + 'log-page_' + options.mode: ''
+        classes += options.addAnyClass ? ' ' + options.addAnyClass : ''
+
+    div.log-page(class=classes)
+       +log-form({
+           element: blockName,
+           type: options.type,
+       })
+
+//+log-page()

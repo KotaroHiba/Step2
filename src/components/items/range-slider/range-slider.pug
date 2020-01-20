@@ -1,9 +1,25 @@
 //- 
     Создает ползунок с двумя кружками. 
-    Не принимает никаких входных аргументво, т.к. заданны стандартные по макету. 
-mixin range-slider()
-    .range-slider
+    Не принимает никаких входных аргументво, т.к. заданны стандартные по макету.
+//-           Options              |               Classes
+    ---------------------------------------------------------------------------
+    sales - (str) - диапазон цены  | element - элементом какого блока является
+                                   | addAnyClass - добавление свободных классов
+                                   | mode - модификатор
+// TODO @Kotaro сделать динамический слайдер с ценами
+mixin range-slider(options)
+    if !options
+        -var options = {}
+    if !options.sales
+        - options.sales = '5 000₽ - 10 000₽'
+    -
+        var classes = ''
+        classes += options.element ? ' ' + options.element + '__range-slider': ''
+        classes += options.addClass ? ' ' + options.addClass : ''
+        classes += options.mode ? ' range-slider_' + options.mode : ''
+
+    .range-slider(class=classes)
         .range-slider__text
             h3 Диапозон цены
-            h3.range-slider__range 5 000₽ - 10 000₽
+            h3.range-slider__range= options.sales
         .range-slider__double

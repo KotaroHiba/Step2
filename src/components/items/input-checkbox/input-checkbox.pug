@@ -4,7 +4,7 @@
     options.id - id (массив)                | options.element - класс элемента
     options.name - name (массив)            | options.mode - модификатор блока
     options.info - подпись в label (массив) | options.state - модификатор состояния
-
+// TODO сделать визуальную подсказку если были переданны не все параметры, вылетает ошибка! при options = {}
 mixin input-checkbox(options)
   if !options
     -options= {}

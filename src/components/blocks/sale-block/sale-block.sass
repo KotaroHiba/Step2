@@ -1,67 +1,46 @@
-
-
 .sale-block
   width: percent(380)
-
-  flex-direction: column
-  border: 2px solid black
   min-width: 320px
+  border: 1px salmon solid
+  position: relative
   &__container
-    margin: 30px percent(30)
-
-
-  &__title
+    position: relative
+    margin: 0 percent(30)
+  &__dates
     display: grid
-    grid-column-gap: percent(105)
-    grid-template-columns: auto-mm(110) auto-mm(105)
-
-
-
-  &__hotel-number
-    @include font(17px, bold, #1F2041)
-    font-family: Quicksand, sans-serif
-    text-transform: uppercase
-    span
-      @include font(15px, bold, $main-color)
-      font-size: rem(12)
-  &__sale-day
-    @include font(18px)
-    text-align: right
-    span
-      font-weight: bold
-  &__form
-    display: grid
-    grid-template-columns: 1fr 1fr
+    grid-template-columns: repeat(2, 1fr)
     grid-column-gap: percent(20)
-
-
-  &__guests
-    grid-column: 1/4
-
+    grid-row-gap: 20px
+    margin-top: 20px
+    &-item
+      h3
+        margin: 0
+        margin-bottom: 5px
+      &_long
+        grid-column: 1 / 3
   &__calc
     margin-top: 20px
     display: grid
-    grid-template-columns: auto-mm(214) auto-mm(57)
-    grid-column-gap: percent(49)
-    @include font(24px)
-    span:nth-child(2n)
-      text-align: right
-  &__total
-    display: grid
-    grid-template-columns: auto-mm(59) auto-mm(182) auto-mm(68)
+    //grid-template-columns: auto-mm(214) auto-mm(20) auto-mm(58)
+    grid-template-columns: minmax(percent(214), 3fr) minmax(percent(20), 20px) minmax(percent(58), 1fr)
     grid-column-gap: percent(5)
+    span
+      @include font(24px)
+      &:nth-child(3n)
+        justify-self: end
+
+  &__sum
+    display: grid
+    grid-template-columns: auto-mm(59) auto-mm(182-10) auto-mm(69)
+    grid-column-gap: percent(5)
+    margin-top: 30px
+    span:nth-child(2)
+      background: url("img/points.svg") repeat-x left bottom
     font-family: Quicksand, sans-serif
-    font-style: normal
     font-weight: bold
     font-size: rem(19)
     line-height: 24px
-    margin-top: 30px
-    &-points
-      background: url(img/points.svg)  repeat-x bottom
-
-
   &__button
     margin-top: 20px
-    text-transform: uppercase
     height: 44px
 

@@ -1,0 +1,48 @@
+include ../../items/input-text-field/input-text-field
+include ../../items/range-slider/range-slider
+include ../../items/input-checkbox/input-checkbox
+
+mixin filter-list(options)
+    - var nameBlock = 'filter-list'
+    if !options
+        - options = {}
+    -
+        var classes = ''
+        classes += options.element ? ' ' + options.element + '__filter-list': ''
+        classes += options.mode ? ' '  + 'filter-list_' + options.mode: ''
+        classes += options.addAnyClass ? ' ' + options.addAnyClass : ''
+
+    div.filter-list(class=classes)
+        h3 Дата пребывания в отеле
+        +input-text-field({
+            element: nameBlock
+        })
+        h3 Гости
+        +input-text-field({
+            element: nameBlock
+        })
+        +range-slider({
+            element: nameBlock
+        })
+        p стоимость за сутки пребывания в море
+        h3 checkbox buttons
+        +input-checkbox({
+            element: nameBlock,
+            description: ['Hello world'],
+            id: [1, 2, 3],
+            info: ['Можно курить', 'Можно с питомцами', 'Можно пригласить гостей']
+        })
+        h3 доступность
+        +input-checkbox({
+            element: nameBlock,
+            description: ['Ширина коридоров в номере не менее 91см', 'На 1 этаже вас встретит специалист и проводит до номера'],
+            id: [4, 5],
+            info: ['Широкий коридор', 'Помощник для инвалидов']
+        })
+        h3 удобства номера
+        +input-text-field()
+
+div.test
+    +filter-list({
+        element: 'test'
+    })

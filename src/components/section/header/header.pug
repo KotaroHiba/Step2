@@ -1,34 +1,36 @@
 include ../../items/button/button
 include ../../items/nav/nav
 include ../../items/logo/logo
+mixin header()
+    header.header
+      +logo({element: "header"})
 
-header.header
-  +logo({element: "header"})
+      .open
+        button.header__button-display-nav
+      +nav({
+          element: "header",
+          listMenu: [
+              {text: 'О нас', link: '#'},
+              {text: 'Услуги', link: '#', drop: true},
+              {text: 'Вакансии', link: '#'},
+              {text: 'Новости', link: '#'},
+              {text: 'Соглашения', link: '#', drop: true}
+          ]
+      })
 
-  .open
-    button.header__button-display-nav
-  +nav({
-      element: "header",
-      listMenu: [
-          {text: 'О нас', link: '#'},
-          {text: 'Услуги', link: '#', drop: true},
-          {text: 'Вакансии', link: '#'},
-          {text: 'Новости', link: '#'},
-          {text: 'Соглашения', link: '#', drop: true}
-      ]
-  })
-
-  +button({
-      invert: true,
-      element: 'header',
-      submit: true,
-      text: "Войти",
-      addAnyClass: "header__button_small"
-  })
-  +button({
-      invert: false,
-      element: 'header',
-      submit: true,
-      text: "Зарегистрироваться",
-      addAnyClass: "header__button_long"
-  })
+      +button({
+          invert: true,
+          element: 'header',
+          submit: true,
+          text: "Войти",
+          addAnyClass: "header__button_small",
+          href: 'login.html'
+      })
+      +button({
+          invert: false,
+          element: 'header',
+          submit: true,
+          text: "Зарегистрироваться",
+          addAnyClass: "header__button_long",
+          href: 'register.html'
+      })

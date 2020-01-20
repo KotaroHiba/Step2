@@ -1,0 +1,87 @@
+include ../../blocks/hotel-number-card/hotel-number-card
+
+mixin rooms-list(options)
+    if !options
+        - var options = {}
+    -
+        var classes = ''
+        classes += options.element ? ' ' + options.element + '__rooms-list': ''
+        classes += options.mode ? ' '  + 'rooms-list_' + options.mode: ''
+        classes += options.addAnyClass ? ' ' + options.addAnyClass : ''
+    - var blockName = 'rooms-list'
+    div.rooms-list(class=classes)
+        for cards in options.cards
+            +hotel-number-card({
+                element: blockName,
+                infoRoom: {
+                    number: cards.number,
+                    sale: '1000'
+                },
+                slides: cards.slides
+            })
+
+
++rooms-list({
+    cards: [
+        {
+            number: 801,
+            sale:'1000',
+            slides: ['1.svg', '1.svg']
+        },
+        {
+            number: 802,
+            sale: '1000',
+            slides: ['1.svg', '2.svg']
+        },
+        {
+            number: 803,
+            sale: '1000',
+            slides: ['1.svg', '2.svg']
+        },
+        {
+            number: 804,
+            sale: '1000',
+            slides: ['1.svg', '2.svg']
+        },
+        {
+            number: 805,
+            sale: '1000',
+            slides: ['1.svg', '2.svg']
+        },
+        {
+            number: 806,
+            sale: '1000',
+            slides: ['1.svg', '2.svg']
+        },
+        {
+            number: 807,
+            sale: '1000',
+            slides: ['1.svg', '2.svg']
+        },
+        {
+            number: 808,
+            sale: '1000',
+            slides: ['1.svg', '2.svg']
+        },
+        {
+            number: 809,
+            sale: '1000',
+            slides: ['1.svg', '2.svg']
+        },
+        {
+            number: 810,
+            sale: '1000',
+            slides: ['1.svg', '2.svg']
+        },
+        {
+            number: 811,
+            sale: '1000',
+            slides: ['1.svg', '2.svg']
+        },
+        {
+            number: 812,
+            sale: '1000',
+            slides: ['1.svg', '2.svg']
+        }
+    ]
+})

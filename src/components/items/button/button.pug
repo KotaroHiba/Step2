@@ -4,8 +4,8 @@
     arrow(bool)  - cтрелка         | addAnyClass - добавление свободных классов
     text - текст кнопки            | mode - модификатор
                                    |
-                                   |
-                                   |
+
+
 mixin button(options)
     if !options
         - var options = {}
@@ -16,9 +16,10 @@ mixin button(options)
         classes += options.arrow ? ' button_arrow' : ''
         classes += options.addAnyClass ? ' ' + options.addAnyClass : ''
     .button(class=classes)
-        button.button__element(
-            type = options.submit ? 'submit' : false,
-            tabindex = options.tabindex || false
-        )= options.text || 'Button'
+        form.button__form(action=options.href)
+            button.button__element(
+                type = options.submit ? 'submit' : false,
+                tabindex = options.tabindex || false
+            )= options.text || 'Button'
 
 //+button({invert : false, element: 'footer', submit: true, class: 'button_arrow', text: 'Кнопка'})

@@ -7,46 +7,50 @@ mixin log-form(options)
     - var blockName = 'log-form'
     if !options
         - options = {}
+    -
+        var classes = ''
+        classes += options.element ? ' ' + options.element + '__log-form': ''
+        classes += options.mode ? ' '  + 'log-form_' + options.mode: ''
+        classes += options.addAnyClass ? ' ' + options.addAnyClass : ''
 
     if options.type === 'register'
-       -
-           var title = 'Регистрация аккаунта'
+       - var title = 'Регистрация аккаунта'
     else
-        -
-            var title  = 'Войти'
+        - var title  = 'Войти'
 
-    div.log-form
+    div.log-form(class=classes)
         div.log-form__container
             h1.log-form__title= title
-            +input-text-field({
-                element: blockName,
-                placeholder: 'Имя',
-            })
-            +input-text-field({
-                element: blockName,
-                placeholder: 'Фамилия'
-            })
-            div.log-form__gender
-                +input-gender({
+            if options.type === 'register'
+                +input-text-field({
                     element: blockName,
-                    id: 1,
-                    gender: 'Мужчина'
+                    placeholder: 'Имя',
                 })
-                +input-gender({
+                +input-text-field({
                     element: blockName,
-                    id: 2,
-                    gender: 'Женщина'
+                    placeholder: 'Фамилия'
+                })
+                div.log-form__gender
+                    +input-gender({
+                        element: blockName,
+                        id: 1,
+                        gender: 'Мужчина'
+                    })
+                    +input-gender({
+                        element: blockName,
+                        id: 2,
+                        gender: 'Женщина'
+                    })
+
+                h3.log-form__subtitle Дата рождения
+
+                +input-text-field({
+                    element: blockName,
+                    placeholder: 'ДД.ММ.ГГГГ',
+                    type: 'data'
                 })
 
-            h3.log-form__subtitle Дата рождения
-
-            +input-text-field({
-                element: blockName,
-                placeholder: 'ДД.ММ.ГГГГ',
-                type: 'data'
-            })
-
-            h3.log-form__subtitle Данные для входа в сервис
+                h3.log-form__subtitle Данные для входа в сервис
 
             +input-text-field({
                 element: blockName,
@@ -58,29 +62,26 @@ mixin log-form(options)
                 placeholder: 'Пароль',
                 type: 'password'
             })
-            div.log-form__offer
-                +toggle({
-                    element: blockName
-                })
-                span Получать спецпредложения
+            if options.type === 'register'
+                div.log-form__offer
+                    +toggle({
+                        element: blockName
+                    })
+                    span Получать спецпредложения
 
             +button({
                 element: blockName,
                 text: 'Перейти к оплате',
                 arrow: true
             })
-
+            - var text = options.type === 'retister' ? 'Уже есть аккаунт на Toxin' : 'Нет аккаунта на Toxin?'
             div.log-form__link-login
-                span Уже есть аккаунт на Toxin
+                span= text
 
                 +button({
                     element: blockName,
                     text: 'Войти',
                     invert: true
-
                 })
 
 
-+log-form({
-    type: 'register'
-})

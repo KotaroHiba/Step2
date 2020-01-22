@@ -44,6 +44,7 @@
   "dependencies": {
     "jquery": "^3.4.1",
     "jquery-ui": "^1.12.1",
-    "jquery-ui-bundle": "^1.12.1-migrate"
+    "jquery-ui-bundle": "^1.12.1-migrate",
+    "moment": "^2.24.0"
   }
 }

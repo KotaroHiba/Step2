@@ -4,7 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const fs = require('fs');
-// const test = require('../src/pages/functions.js');
+
+
 
 const PATHS = {
     src: path.join(__dirname, '../src'),
@@ -94,7 +95,6 @@ let config = {
                 loader: 'pug-loader',
                 options: {
                     pretty: true,
-                    self: true
                 }
             },
 
@@ -121,6 +121,7 @@ let config = {
 
     plugins: [
 
+
         new MiniCssExtractPlugin({
             filename: `${PATHS.assets}/css/[name].[contenthash].css`,
             chunkFilename: '[id].css',
@@ -131,6 +132,7 @@ let config = {
             "$" : 'jquery',
             "jQuery" : "jquery",
             "window.jQuery" : "jquery",
+            "pf" : "./pugFunctions"
 
         }),
 
@@ -161,8 +163,6 @@ let config = {
             template: `${PAGES_DIR}/${page}`,
             filename: `./${page.replace(/\.pug/, '.html')}`,
             // chunks: ['vendors', `${page.replace(/\.pug/, '')}`],
-            testes: 'Hello wr'
-
         }))
 
     ]

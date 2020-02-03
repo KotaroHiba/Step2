@@ -120,8 +120,6 @@ let config = {
     },
 
     plugins: [
-
-
         new MiniCssExtractPlugin({
             filename: `${PATHS.assets}/css/[name].[contenthash].css`,
             chunkFilename: '[id].css',

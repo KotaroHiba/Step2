@@ -1,46 +1,66 @@
 .sale-block
-  width: percent(380)
-  min-width: 320px
-  border: 1px salmon solid
-  position: relative
+  background: #FFFFFF
+  border: 1px solid rgba(0, 0, 0, 0.12)
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2)
+  border-radius: 4px
+
+  @include  mm-wh(380)
   &__container
-    position: relative
-    margin: 0 percent(30)
-  &__dates
-    display: grid
-    grid-template-columns: repeat(2, 1fr)
-    grid-column-gap: percent(20)
-    grid-row-gap: 20px
+    @include mm-wh(320)
+    margin: 44px auto 30px auto
+  &__calendar
+    margin-top: 22px
+  &__subtitle
     margin-top: 20px
-    &-item
-      h3
-        margin: 0
-        margin-bottom: 5px
-      &_long
-        grid-column: 1 / 3
-  &__calc
-    margin-top: 20px
-    display: grid
-    //grid-template-columns: auto-mm(214) auto-mm(20) auto-mm(58)
-    grid-template-columns: minmax(percent(214), 3fr) minmax(percent(20), 20px) minmax(percent(58), 1fr)
-    grid-column-gap: percent(5)
-    span
-      @include font(24px)
-      &:nth-child(3n)
-        justify-self: end
-
-  &__sum
-    display: grid
-    grid-template-columns: auto-mm(59) auto-mm(182-10) auto-mm(69)
-    grid-column-gap: percent(5)
-    margin-top: 30px
-    span:nth-child(2)
-      background: url("img/points.svg") repeat-x left bottom
-    font-family: Quicksand, sans-serif
-    font-weight: bold
-    font-size: rem(19)
-    line-height: 24px
+    margin-bottom: 7px
   &__button
-    margin-top: 20px
     height: 44px
+    margin-top: 20px
+  &__info-sale
+    margin-top: 20px
+  &__number-cost
+    width: 100% !important
+    font-size: 21px
+    font-family: Open-sans-bold
+.info-sale
+  display: flex
+  flex-wrap: wrap
+  width: 100%
+  &__item
+    display: flex
+    justify-content: space-between
+    font-family: Montserrat
+    font-size: 14px
+    color: rgba(31, 32, 65, 0.75)
+    margin-bottom: 16px
+    &:nth-child(3)
+      margin-bottom: 10px
+    p
+      margin: 0
+  &__text
+    @include mm-wh(214)
+    position: relative
+    &_helps
+      &::after
+        content: ''
+        min-width: 20px
+        min-height: 20px
+        position: absolute
+        top: -2px
+        right: -25px
+        background: url("img/Voskl.svg")
 
+  &__total
+    color: #1F2041
+    display: flex
+    justify-content: space-between
+    &-text
+      font-family: Open-sans-bold, sans-serif
+      font-size: 19px
+      margin-bottom: 0
+    &-points
+      flex: 1 0 auto
+      background: url("img/points.svg") repeat-x
+      background-position-y: 38px
+    &-sale
+      text-transform: uppercase

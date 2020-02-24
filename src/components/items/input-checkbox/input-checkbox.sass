@@ -1,37 +1,31 @@
 .input-checkbox
-  margin-left: 20px
+  display: flex
 
   &__item
     list-style: none
     margin-bottom: 10px
 
   &__checkbox
-    display: none
+    width: 20px
+    height: 20px
+    min-width: 20px
+    border: 1px solid $color-dark-25
+    box-sizing: border-box
+    border-radius: 4px
+    transform: translateY(-1px)
+    cursor: pointer
+
+    &_active
+      border-color: $main-color
+      font-family: Material Icons, sans-serif
+      font-size: 14px
+      text-align: center
+      background: $main-gradient
+      -webkit-background-clip: text
+      -webkit-text-fill-color: transparent
 
   &__signature
-    position: relative
-
-    &::before
-      content: ""
-      position: absolute
-      top: 0
-      left: -25px
-      border: 1px solid $main-color
-      border-radius: 4px
-      width: 20px
-      height: 20px
-      box-sizing: border-box
-
-    &::after
-      content: ""
-      position: absolute
-      top: 4px
-      left: -20px
-      width: 10px
-      height: 12px
-      background-image: url("Vector.svg")
-      opacity: 1
-      box-sizing: border-box
+    margin-left: 10px
 
   &__text
     @include font(18px)
@@ -43,12 +37,14 @@
     border: 1px solid $color-dark-25
 
   &__text_bold
-      font-weight: bold
-      color: $color-dark-75
+    font-weight: bold
+    color: $color-dark-75
+    font-family: Montserrat, sans-serif
+    font-size: 14px
 
   &__description
     @include font()
     font-size: 12px
     color: $color-dark-50
     max-width: 240px
-    margin-top: 0
+    margin-top: 6px

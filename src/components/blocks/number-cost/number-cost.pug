@@ -1,0 +1,33 @@
+//-                        Options                  |               Classes
+   ------------------------------ ---------------------------------------------------------------------------
+      number - (int) номер команты                  |   element - элементом какого блока является
+      lux - (bool = false) приставка к номеру       |   addAnyClass - добавление свободных классов
+      sale - (string) цена за комнату в сутки       |   mode - свободный модификатор
+                                                    |
+      star(bool = false) установка оценки           |
+
+include ../../items/rate-button/rate-button
+mixin number-cost(options)
+    if !options
+        -
+            options = {
+                number: 125,
+                sale: 1200
+            }
+        include description
+    - var number = '№ ' + options.number
+    - var sale = options.sale + 'Р в сутки'
+    div.number-cost(class=pf.addClasses('number-cost', options))
+        div.number-cost__number= number
+            if options.lux === true
+                span  люкс
+        div.number-cost__sale= sale
+        if options.star === true
+            div.number-cost__line
+            +rate-button({
+                element: 'number-cost'
+            })
+            div.number-cost__sale= '145 Отзывов'
+
+
+

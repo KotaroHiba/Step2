@@ -1,0 +1,21 @@
+//- Диаграмма, которая показывает кол-во разных отзывов. 
+    Нет параметров, т.к. для макета предоставленн только такой вид. 
+    Если надо поменять процетное соотношение, то это делаться в js файле.
+
+mixin pie-chart(options)
+    if !options
+        - options = {}
+    .pie-chart(class=pf.addClasses('pagination', options))
+        .pie-chart__container
+            .pie-chart__section
+            .pie-chart__vote 
+                .pie-chart__count 260 
+                h3 голосов 
+        ul.pie-chart__list 
+            li.pie-chart__li_yellow Великолепно 
+            li.pie-chart__li_green Хорошо 
+            li.pie-chart__li_violet Удовлетворительно 
+            li.pie-chart__li_black Разочарован
+
+
+//- +pie-chart()

@@ -6,6 +6,10 @@
                                                     |
       star(bool = false) установка оценки           |
                                                     |
+// TODO: @misha съехали коментарии. 
+    Надо перенcти в раздел bloks. 
+    sale может быть int, а не только string (как указано в коментариях).
+    
 
 include ../rate-button/rate-button
 mixin number-cost(options)
@@ -13,22 +17,30 @@ mixin number-cost(options)
         - var options = {}
     -
         var classes = ''
-        classes += options.element ? ' ' + options.element + '__number-cost': ''
-        classes += options.mode ? ' '  + 'number-cost_' + options.mode: ''
-        classes += options.addAnyClass ? ' ' + options.addAnyClass : ''
-    - var number = '№ ' + options.number
-    - var sale = options.sale + 'Р в сутки'
+            classes += options.element ? ' ' + options.element + '__number-cost': ''
+            classes += options.mode ? ' '  + 'number-cost_' + options.mode: ''
+            classes += options.addAnyClass ? ' ' + options.addAnyClass : ''
+    -
+        var number = '' + options.number
+        var sale = options.sale + "Р "
     div.number-cost(class=classes)
-        div.number-cost__number= number
+        div.number-cost__number!='<p class="number-cost__number_num">№ </p>' + number
             if options.lux === true
                 span  люкс
         div.number-cost__sale= sale
+            span в сутки
         if options.star === true
             div.number-cost__line
             +rate-button({
                 element: 'number-cost'
             })
-            div.number-cost__sale= '145 Отзывов'
+            div.number-cost__sale= '145 '
+                span Отзывов
 
 
-
+//- +number-cost({
+//-     number: 4,
+//-     lux: false,
+//-     sale: 7869,
+//-     star: false
+//- })

@@ -1,0 +1,65 @@
+
+//-           Options                              |               Classes
+    -----------------------------------------------------------------------------------------
+    options.placeholder - подпись внутри input     | options.addAnyClass - добавить любой класс
+    options.type - type                            | options.element - класс элемента
+    options.twoInputs (boolean) - true = 2 input-a | options.mode - модификатор блока
+                                                   | options.state - модификатор состояния
+                                                   |
+
+
+
+mixin calendar(options)
+  if !options
+    -options= {}
+  if !options.placeholder
+    -options.placeholder = "ДД.ММ.ГГГГ"
+  -
+    var classes = 'calendar'
+    classes += !options.twoInputs ? ' ' + "calendar_singleInput" : ''
+    classes += options.element ? ' ' + options.element + '__calendar' : ''
+    classes += options.mode ? ' calendar_' + options.mode : ''
+    classes += options.state ? ' calendar_state_' + options.state : ''
+    classes += options.addAnyClass ? ' ' + options.addAnyClass : ''
+
+
+  if options.twoInputs
+    div(class= classes)
+      input(
+        class="calendar__input input-calendar_hidden"
+        type= "daterange"
+        name= "daterange"
+        id= "daterange"
+        placeholder= options.placeholder
+      )
+      .calendar__block
+        h3 Прибытие
+        .calendar__container
+          input(
+            name='check_in_date',
+            type='text',
+            class="calendar__input input-calendar_entry"
+            id= "check_in_date"
+            placeholder= options.placeholder
+          )
+      .calendar__block
+        h3 Выезд
+        p.calendar__container
+          input(
+            name='check_out_date',
+            type='text',
+            class="calendar__input input-calendar_departure"
+            id= "check_out_date"
+            placeholder= options.placeholder
+          )
+  else
+    div(class= classes)
+      input(
+        class="calendar__input input-calendar_visible"
+        type= "daterange"
+        name= "daterange"
+        id= "daterange"
+        placeholder= options.placeholder
+      )
+
+//- +calendar({twoInputs: true})

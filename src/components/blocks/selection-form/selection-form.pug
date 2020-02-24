@@ -1,0 +1,25 @@
+include ../../items/calendar/calendar
+include ../../items/button/button
+include ../../items/dropdown/dropdown
+mixin selection-form(options)
+    if !options
+        - options = {}
+    - var blockName = 'selection-form'
+    .selection-form(class= pf.addClasses(blockName , options))
+        .selection-form__container
+            h1.selection-form__title Найдем номера под ваши пожелания
+            +calendar({
+                twoInputs: true,
+                element: blockName
+            })
+            h3.selection-form__subtitle гости
+            +dropdown({
+                vestNumbers: true,
+                element: blockName
+            })
+            +button({
+                element: blockName,
+                text: 'подобрать номер',
+                arrow: true
+            })
+

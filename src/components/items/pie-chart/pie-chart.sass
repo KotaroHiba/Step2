@@ -1,0 +1,72 @@
+.pie-chart
+    display: flex 
+    flex-direction: row
+    align-items: flex-end
+    > .pie-chart__list
+        margin: 0
+        > li 
+            list-style-type: none
+            @include font(24px)
+            &::before
+                content: "fiber_manual_record"
+                font-family: 'Material Icons'
+                font-size: 10px
+                line-height: 10px
+                border-radius: 50%
+                color: transparent 
+                margin: 0 5px 0 0 
+        > .pie-chart__li_yellow 
+            &::before
+                background: linear-gradient(180deg, #FFE39C 0%, #FFBA9C 100%)
+        > .pie-chart__li_green 
+            &::before
+                background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%)
+        > .pie-chart__li_violet 
+            &::before
+                background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)
+        > .pie-chart__li_black
+            &::before
+                background: linear-gradient(180deg, #919191 0%, #3D4975 100%)
+            
+
+.pie-chart__container
+    width: 120px
+    height: 120px
+    overflow: hidden
+    border-radius: 50%
+    position: relative
+    &::after 
+        content: ''
+        position: absolute
+        width: 90%
+        height: 90%
+        background: #fff
+        border-radius: 50%
+        top: 5%
+        left: 5%
+
+.pie-chart__section 
+    width: 50%
+    height: 50%
+    position: absolute
+    left: 50%
+    top: 0
+    transform-origin: left bottom
+
+.pie-chart__vote 
+    position: relative
+    z-index: 1
+    text-align: center 
+    top: 30%
+    color: $main-color
+    > h3 
+        margin: 0
+    > .pie-chart__count
+        font-family: Quicksand
+        font-style: normal
+        font-weight: bold
+        font-size: 24px
+        line-height: 30px
+
+
+ 

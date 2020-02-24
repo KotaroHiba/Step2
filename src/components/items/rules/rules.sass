@@ -1,0 +1,47 @@
+.rules
+  width: 100%
+  display: flex
+  flex-wrap: wrap
+  &__title
+    font-family: Open-sans-bold
+    font-size: 19px
+    margin-left: 25px
+    margin-top: 17px
+    margin-bottom: 21px
+    text-transform: capitalize
+    color: #1F2041
+    margin-top: 0
+
+  &__list
+    font-family: Montserrat, sans-serif
+    font-size: 14px
+    color: $color-dark-75
+    list-style: none
+    position: relative
+    padding: 0
+    img
+      margin-right: 10.43px
+      display: block
+
+    &-item
+      display: flex
+      line-height: 24px
+      margin-bottom: 10px
+      &::before
+        content: '\25CF'
+        font-size: 24px
+        color: $color-dark-25
+        margin-right: 10px
+  &__cancel
+    margin-left: 70px
+    > .rules__title
+      margin-left: 0
+
+  &__text
+    font-family: Montserrat, sans-serif
+    font-size: 14px
+    line-height: 24px
+    color: $color-dark-75
+    @include mm-wh(341)
+
+

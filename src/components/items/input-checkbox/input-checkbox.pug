@@ -1,35 +1,38 @@
 //-           Options                       |               Classes
     ---------------------------------------------------------------------------
-    options.description - описание (массив) | options.addAnyClass - добавить любой класс
-    options.id - id (массив)                | options.element - класс элемента
-    options.name - name (массив)            | options.mode - модификатор блока
-    options.info - подпись в label (массив) | options.state - модификатор состояния
+    options.description - описание          | options.addAnyClass - добавить любой класс
+                                            | options.element - класс элемента
+                                            | options.mode - модификатор блока
+    options.info - заголовок или подпись    | options.state - модификатор состояния
 // TODO сделать визуальную подсказку если были переданны не все параметры, вылетает ошибка! при options = {}
-mixin input-checkbox(options)
-  if !options
-    -options= {}
-  if !options.id || !options.info
-    p Указание id, info и times является обязательным для input-checkbox
-  -
-    var classes = 'input-checkbox'
-    classes += options.element ? ' ' + options.element + '__input-checkbox': ''
-    classes += options.mode ? ' input-checkbox_' + options.mode : ''
-    classes += options.state ? ' input-checkbox_state_' + options.state : ''
-    classes += options.addAnyClass ? ' ' + options.addAnyClass : ''
 
-  div(class=classes)
-    ul.input-checkbox__conteiner
-    -for (var x = 0; x < options.id.length; x++)
-      li.input-checkbox__item
-        input(
-          class="input-checkbox__checkbox"
-          type="checkbox"
-          name= options.name ? options.name[x]: "input-checkbox__checkbox " + x
-          id= options.id[x]
-        )
-        label.input-checkbox__signature(for= options.id[x])
-          span(
-            class= options.description ? "input-checkbox__text_bold": "input-checkbox__text"
-          )= options.info[x]
-        if options.description
-          p.input-checkbox__description= options.description[x]
+mixin input-checkbox(options)
+
+  if !options
+    -options = {}
+  if !options.checkbox[0].info
+    p Указание info является обязательным для input-checkbox
+  -
+    var clases = "input-checkbox"
+
+  for checkboxElement in options.checkbox
+    - clases += checkboxElement.description && !(clases.includes("_features")) ? " " + "input-checkbox_features" : ""
+
+    div(class=clases class= pf.addClasses('input-checkbox', options))
+      .input-checkbox__checkbox
+      .input-checkbox__signature
+        span(class= checkboxElement.description ? "input-checkbox__text_bold": "input-checkbox__text")!= checkboxElement.info
+        if checkboxElement.description
+          .input-checkbox__description!= checkboxElement.description
+
+//+input-checkbox({
+//    element: nameBlock,
+//    checkbox: [
+//        {info : 'Широкий коридор',
+//            description: 'Ширина коридоров в номере не менее 91см'},
+//
+//        {info : 'Помощник для инвалидов',
+//            description: 'На 1 этаже вас встретит специалист и проводит до номера'
+//        },
+//    ],
+//})

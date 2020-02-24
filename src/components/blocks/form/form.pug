@@ -1,0 +1,21 @@
+include ../../items/dropdown/dropdown
+include ../../items/button/button
+include ../../items/calendar/calendar
+// TODO: добавить коментарии
+    изменить миксин
+    добавить календарь 
+    пофиксить dropdown and button
+    возможно переименовать форму
+mixin form()
+    .form 
+        h1 Найдём номера под ваши пожелания
+        +calendar({twoInputs: true})
+        h3 Гости
+        +dropdown({vestNumbers: true})
+        +button({
+            invert : false, 
+            arrow: true, 
+            text: 'Подобрать номер', 
+            addAnyClass: 'form__button'
+        })
+

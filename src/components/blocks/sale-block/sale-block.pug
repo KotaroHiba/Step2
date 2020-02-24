@@ -1,55 +1,60 @@
 include ../../items/dropdown/dropdown
 include ../../items/button/button
+include ../../items/calendar/calendar
 include ../../items/number-cost/number-cost
 include ../../items/input-text-field/input-text-field
 mixin sale-block()
     - var blockName = 'sale-block'
     div.sale-block
-        div.sale-block__container
+        .sale-block__container
             +number-cost({
-                number: 801,
+                element: blockName,
                 lux: true,
                 sale: '9 990',
-                element: blockName,
+                number: 888
             })
-            div.sale-block__dates
-                div.sale-block__dates-item
-                    h3 прибытие
-                    +input-text-field({
-                        element: blockName
-                    })
-                div.sale-block__dates-item
-                    h3 выезд
-                    +input-text-field({
-                        element: blockName
-                    })
-                div.sale-block__dates-item.sale-block__dates-item_long
-                    h3 гости
-                    +input-text-field({
-                        element: blockName
-                    })
-            div.sale-block__calc
-                span 9900Р х4 суток
-                span
-                span 39 640Р
-                span Сбор за услуги: скидка 2 719Р
-                img(src='img/sign.svg')
-                span 0Р
-                span Сбор за дополнительные услуги
-                img(src='img/sign.svg')
-                span 300Р
-            div.sale-block__sum
-                span Итого
-                span
-                span 38 081Р
+
+            +calendar({
+                element: blockName,
+                twoInputs: true
+            })
+
+            h3.sale-block__subtitle Гости
+            +dropdown({
+                element: blockName,
+                vestNumbers: true
+            })
+
+            div(class = blockName + '__info-sale')
+                div.info-sale__item
+                    div.info-sale__text
+                        p 9 990₽ х 4 суток
+                    p.info-sale__sale 39 960₽
+                div.info-sale__item
+                    div.info-sale__text.info-sale__text_helps
+                        p Сбор за услуги: скидка 2 179₽
+                    p.info-sale__sale 0₽
+                div.info-sale__item
+                    div.info-sale__text.info-sale__text_helps
+                        p Сбор за дополнительные услуги
+                    p.info-sale__sale 300₽
+                div.info-sale__total
+                    p.info-sale__total-text Итого
+                    div.info-sale__total-points
+                    p.info-sale__total-text.info-sale__total-sale 38 081р
+
             +button({
                 element: blockName,
+                text: 'забронировать',
                 arrow: true
             })
 
 
 
-+sale-block({
 
-})
+
+
+
+
+//- +sale-block()
 

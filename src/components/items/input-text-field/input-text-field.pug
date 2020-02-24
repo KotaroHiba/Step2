@@ -1,1 +1,38 @@
-//-           Options                            |               Classes    -----------------------------------------------------------------------------------------    options.placeholder - подпись внутри input   | options.arrow - стрелка    options.name - name                          | options.element - класс элемента    options.type - type                          | options.mode - модификатор блока    options.id - id                              | options.state - модификатор состояния                                                 | options.addAnyClass - добавить любой классmixin input-text-field(options)  if !options    -options= {}  if !options.placeholder    - options.placeholder = "Напишите placeholder"  -    var classes = 'input-text-field'    classes += options.element ? ' ' + options.element + '__input-text-field' : ''    classes += options.mode ? ' input-text-field_' + options.mode : ''    classes += options.state ? ' input-text-field_state_' + options.state : ''    classes += options.addAnyClass ? ' ' + options.addAnyClass : ''    classes += options.arrow ? ' input-text-field_arrow' : ''  div(class=classes)    input(      class="input-text-field__text-input"      type= options.type      name= options.name      id= options.id      placeholder= options.placeholder    )
+//-           Options                            |               Classes
+    -----------------------------------------------------------------------------------------
+    options.placeholder - подпись внутри input   | options.arrow - стрелка
+    options.name - name                          | options.element - класс элемента
+    options.type - type                          | options.mode - модификатор блока
+    options.id - id                              | options.state - модификатор состояния
+                                                 | options.addAnyClass - добавить любой класс
+
+// TODO: @misha id - не нужно. Создается всё без него. 
+    type тоже не нужен. Если это текст. Указать список параметров для него в коментариях.
+    Картинка указана как бэкграунд в сss. Нужно заменить на шрифтовую стрелку. И более явно её указывать.
+
+mixin input-text-field(options)
+    if !options
+        -options= {}
+    if !options.placeholder
+        - options.placeholder = "Напишите placeholder"
+    -
+        var classes = 'input-text-field'
+        classes += options.element ? ' ' + options.element + '__input-text-field' : ''
+        classes += options.mode ? ' input-text-field_' + options.mode : ''
+        classes += options.state ? ' input-text-field_state_' + options.state : ''
+        classes += options.addAnyClass ? ' ' + options.addAnyClass : ''
+        classes += options.arrow ? ' input-text-field_arrow' : ''
+    div(class=classes)
+        input(
+            class="input-text-field__text-input"
+            type= options.type
+            name= options.name
+            id= options.id
+            placeholder= options.placeholder
+        )
+
+//- +input-text-field({
+//-     placeholder: 'lol',
+//-     name: 'kek',
+//-     type: 'password'
+//- })

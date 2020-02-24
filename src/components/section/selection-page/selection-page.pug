@@ -1,0 +1,9 @@
+include ../../blocks/selection-form/selection-form
+mixin selection-page(options)
+    if !options
+        - options = {}
+    - var blockName = 'selection-page'
+    div.selection-page(class=pf.addClasses(blockName, options))
+        +selection-form({
+            element: blockName,
+        })

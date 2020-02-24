@@ -1,7 +1,8 @@
+// TODO: @misha добавить обрабление $(document).ready(function). Чтобы js работал после загрузки страницы.
 $(".range-slider__double").slider({
     range: true,
-    min: 0,
-    max: 15000,
+    min: 500,
+    max: 16500,
     step: 1,
     values: [5000, 10000],
     slide: function (e, ui) {

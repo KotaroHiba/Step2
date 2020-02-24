@@ -1,0 +1,72 @@
+include ../../items/advantages/advantages
+include ../../blocks/feedback-record/feedback-record
+include ../../blocks/sale-block/sale-block
+include ../../items/rules/rules
+mixin detail-room(options)
+    if !options
+        - options = {}
+    - blockName = 'detail-room'
+
+    div(class= blockName)
+        div(class = blockName + '__photo-wall' class = 'photo-wall')
+            div.photo-wall__item_main
+                img(src = 'img/' + 'room1.svg')
+            div.photo-wall__item
+                img(src = 'img/' + 'room1.1.svg')
+            div.photo-wall__item
+                img(src = 'img/' + 'room1.2.svg')
+        div(class= blockName + '__container')
+            // инофрмация отзывы
+            div(class= blockName + '__general-information')
+                div(class= blockName + '__advantages-list')
+                    h2.detail-room__subtitle Сведения о номере
+                    +advantages({
+                        element: blockName,
+                        image: 'smile.svg',
+                        heading: 'Комфорт',
+                        text: 'Шумопоглощающие стены',
+                    })
+                    +advantages({
+                        element: blockName,
+                        image: 'location_city.svg',
+                        heading: 'Удобство',
+                        text: 'Окно в каждой из спален',
+                    })
+                    +advantages({
+                        element: blockName,
+                        image: 'whatshot.svg',
+                        heading: 'Уют',
+                        text: 'Номер оснащен камином',
+                    })
+                div(class= blockName + '__impression-number' class='impression-number')
+                    //TODO @Kotaro создать блоками
+                    h2.detail-room__subtitle Впечатления от номера
+                    img(src='img/Pie.png').impression-number__circle
+                    img(src='img/Group.svg').impression-number__list
+                div(class = blockName + '__visitors visitors')
+                    h2.visitors__title Отзывы посетителей номера
+                    +feedback-record({
+                        element: blockName,
+                        image: 'img/member.png',
+                        count: 12,
+                        state: true,
+                        author: 'Мурад Сарафанов',
+                        data: '5 дней назад',
+                        text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
+                    })
+                    +feedback-record({
+                        element: blockName,
+                        count: 2,
+                        image: 'img/member2.png',
+                        author: 'Патрисия Стёклышкова',
+                        data: 'Неделю назад',
+                        text: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент'
+                    })
+                +rules({
+                    element: blockName
+                })
+
+            //калькулятор цен
+            div(class= blockName + '__calculator-sale')
+                +sale-block()
+

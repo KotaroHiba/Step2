@@ -1,10 +1,11 @@
 //-           Options                       |               Classes
     ----------------------------------------------------------------------------
-     widthText - (bool) c текстом или нет   | options.element - элементом какого блока я вляется
+     withText - (bool) c текстом или нет   | options.element - элементом какого блока я вляется
                                             | option.mode - модификатор данного блока
                                             | option.addAnyClass - свободное добавление классов к блоку
                                             |
                                             |
+
 mixin logo(options)
     if !options
         - options = {}
@@ -16,7 +17,7 @@ mixin logo(options)
     div(class=classes)
         div.logo__icon
             img(src='img/logo.svg')
-        if options.widthText === true
+        if options.withText === true
             div.logo__text
                |Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
 

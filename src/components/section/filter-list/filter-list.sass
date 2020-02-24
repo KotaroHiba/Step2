@@ -1,6 +1,55 @@
 .filter-list
- width: 100%
+  width: 100%
+  display: flex
+  flex-direction: column
 
-.test
-  width: 270px
-  margin-left: 30px
+  &__heading
+    line-height: 0
+
+    &_checkbox
+      margin: 11px 0 24px
+
+    &_guests
+      margin: 29px 0 11px
+
+    &_features
+      margin: 18px 0 24px
+
+    &_facilities
+     margin-bottom: 11px
+
+  &__interior-conteiner
+    margin-top: 20px
+
+  &__date-and-guests-number
+    margin: 0
+    display: flex
+    flex-direction: column
+
+  &__facilities
+    margin-top: 26px
+
+  &__sale-interpretation
+    font-size: 12px
+    font-family: Montserrat, sans-serif
+    color: $color-dark-50
+    margin: 14px 0 6px
+
+  &__input-checkbox
+    margin-bottom: 11px
+
+    &:last-child
+      margin-bottom: 0
+
+  &__more-facilities
+    margin-top: 27px
+
+.input-checkbox
+
+    &_features
+      margin-bottom: 10px
+
+
+
+
+

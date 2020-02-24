@@ -1,27 +1,27 @@
-//- Для работы чек-боксов. 
+//-                      options                       |                classes
+    title (str) - заголовок                            |        element - элементом блока является
+    arrayId (arr[int]) - id чекбоксов                  |        mode - модификатор элемента
+    arrayInfo (arr[str]) - Названия чекбоксов          |        addAnyClass - свободный класс блока
+
+//- Для работы чек-боксов.
 include ../../items/input-checkbox/input-checkbox
-//- 
-    Лист, который состоит из чек-боксов. 
-    На вход подаётся три параметра. Один - для самого листа. Два - для чек-бокса. 
-    Title - string - заголовок чек-листа. 
-    ArrayId - может быть любым - это для label заголовков чек-бокса. 
-    ArrayInfo - string - значения чек-боксов. 
-    Пример под миксином.
 
 
 mixin checkbox-list(options)
-    .checkbox-list 
+    if !options
+        -
+            options = {
+                title: 'Дополнительные удобства',
+                arrayId: [1, 2, 3, 4, 5],
+                arrayInfo: ["Завтрак", "Письменный стол", "Кроватка", "Телевизор", "Шампунь"],
+            }
+        include description
+    .checkbox-list(class= pf.addClasses('checkbox-list', options))
         .checkbox-list__title
             h3= options.title
             .checkbox-list__arror keyboard_arrow_down
-        +input-checkbox({
-                id: options.arrayId,
-                info: options.arrayInfo
-            })
+        ul
+            each element in options.arrayInfo
+                li 
+                    +input-checkbox({info: element})
 
-
-+checkbox-list({
-        title: 'Дополнительные удобства',
-        arrayId: [1,2,3,4,5],
-        arrayInfo: ["Завтрак", "Письменный стол", "Кроватка", "Телевизор", "Шампунь"]
-    })

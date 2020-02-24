@@ -1,0 +1,38 @@
+.pagination
+  display: grid
+  grid-template-columns: repeat(6, 40px)
+  grid-template-rows: 40px 40px
+  text-align: center
+
+  > .pagination__number, .pagination__arrow
+    align-self: center
+    width: rem(40)
+    height: rem(40)
+    border-radius: 22px
+
+  > .pagination__number
+    font-family: Montserrat, sans-serif
+    font-style: normal
+    font-weight: normal
+    font-size: 12px
+    line-height: 40px
+    color: $color-dark-50
+  > .pagination__number.active
+    background: $main-gradient
+    color: $white
+    font-weight: bold
+  > .pagination__arrow
+    font-family: 'Material Icons', sans-serif
+    font-size: 24px
+    line-height: 40px
+    background: $subsidiary-gradient
+    color: $white
+  > .pagination__text
+    grid-column: 1/7
+    font-family: Montserrat, sans-serif
+    font-style: normal
+    font-weight: normal
+    font-size: 14px
+    line-height: 40px
+    color: $color-dark-75
+    text-align: start

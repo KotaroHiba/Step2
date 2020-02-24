@@ -1,0 +1,16 @@
+mixin rules(options)
+    if !options
+        - options = {}
+    - var blockName = 'rules'
+    .rules(class = pf.addClasses('rules', options))
+        div.rules__specific
+            h3.rules__title Правила
+            ul.rules__list
+                li.rules__list-item Нельзя с питомцами
+                li.rules__list-item Без вечеринок и мероприятий
+                li.rules__list-item Время прибытия -- после 13:00, <br> а выезд до 12:00
+        .rules__cancel
+            h3.rules__title Отмена
+            p.rules__text.
+                Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
+

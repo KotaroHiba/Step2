@@ -7,15 +7,13 @@
 mixin rate-button(options)
     if !options
         -var options = {}
-    -
-        var classes = ''
-        classes += options.element ? ' ' + options.element + '__rate-button': ''
-        classes += options.addClass ? ' ' + options.addClass : ''
-        classes += options.mode ? ' rate-button_' + options.mode : ''
-    .rate-button(class= classes)
+    .rate-button(class= pf.addClasses('rate-button', options))
         - for(let i = 0; i < 5; i++)
             if i < options.count
                 .rate-button__star(data-value=(i)) star
             else
                 .rate-button__star(data-value=(i)) star_border
 
+//- +rate-button({
+//-     count: 4
+//- })

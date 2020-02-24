@@ -10,16 +10,14 @@ mixin button(options)
     if !options
         - var options = {}
     -
-        var classes = ''
-        classes += options.element ? ' ' + options.element + '__button': ''
-        classes += options.invert ? ' button_inverted' : ''
-        classes += options.arrow ? ' button_arrow' : ''
-        classes += options.addAnyClass ? ' ' + options.addAnyClass : ''
-    .button(class=classes)
-        form.button__form(action=options.href)
-            button.button__element(
-                type = options.submit ? 'submit' : false,
-                tabindex = options.tabindex || false
-            )= options.text || 'Button'
+       var  classes = ''
+            classes += options.invert ? ' button_inverted' : ''
+            classes += options.arrow ? ' button_arrow' : ''
+    .button(class=classes class=pf.addClasses('button', options))
+        button.button__element= options.text || 'Button'
 
-//+button({invert : false, element: 'footer', submit: true, class: 'button_arrow', text: 'Кнопка'})
+//- +button({
+//-     invert : true,  
+//-     arrow: true,
+//-     text: 'Кнопка'
+//- })

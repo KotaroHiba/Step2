@@ -1,4 +1,4 @@
-
+// TODO: @misha добавить обрабление $(document).ready(function). Чтобы js работал после загрузки страницы.
 
 $(function(){
     $('.like-button').click(function (e, changeState) {

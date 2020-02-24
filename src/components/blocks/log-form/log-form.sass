@@ -2,33 +2,35 @@
   width: percent(380)
   display: flex
   flex-direction: column
-  border: 2px solid black
   min-width: 320px
-  //max-width: 480px
+  border-radius: 5px
   background: $white
 
   &__container
-    margin: 0 percent(30)
-    margin-bottom: 30px
+    margin: 40px 30px 32px 30px
+
 
   &__gender
     display: flex
-    margin-bottom: 26px
+    margin-bottom: 21px
 
   &__link-login
     display: grid
     width: 100%
     margin-top: 30px
+    font-family: $main-font
     grid-template-columns: minmax(186px, percent(186+35)) minmax(99px, percent(99))
     font-size: 14px
     align-items: center
+    & > .button
+      margin-top: 0
 
   &__offer
     display: grid
     grid-column-gap: 10px
     grid-template-columns: minmax(40px, percent(40)) minmax(210px, percent(210))
     align-items: center
-    margin-bottom: 20px
+    margin-bottom: 23px
     span
       @include font(24px)
 
@@ -39,6 +41,7 @@
   &__button
     width: 100%
     height: 44px
+    margin-top: 20px
 
   &__input-text-field
     width: 100%
@@ -46,8 +49,13 @@
     margin-bottom: 10px
 
   &__title
-
+    font-family: Open-sans-bold
+    font-size: 24px
+    margin: 0 0 20px 0
 
   &__subtitle
     margin-top: 20px
     margin-bottom: 5px
+
+  &__password
+    margin-bottom: 7px

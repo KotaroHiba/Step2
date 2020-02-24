@@ -1,20 +1,33 @@
 .number-cost
   display: grid
+  align-items: center
   width: calc(100% - 40px)
   grid-template-columns: 1fr 1fr
   grid-row-gap: 10px
   &__number
-    @include font(17px, bold, #1F2041)
-    font-family: Quicksand, sans-serif
+    font-family: Open-sans-bold, sans-serif
     text-transform: uppercase
+    font-weight: bold
+    font-size: 24px
+    color: $color-title
+    &_num
+      font-size: 14px
+      font-family: Quicksand
+      color: black
+      display: inline
     span
       @include font(15px, bold, $main-color)
       font-size: rem(12)
+      font-weight: normal
+      margin-left: 2px
   &__sale
-    @include font(18px)
     text-align: right
+    font-family: Montserrat, sans-serif
+    font-weight: bolder
+    font-size: 14px
+    color: $color-dark-50
     span
-      font-weight: bold
+      font-weight: normal
   &__line
     border: 1px solid rgba(31, 32, 65, 0.1)
     width: 100%
